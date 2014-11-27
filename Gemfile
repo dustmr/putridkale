@@ -37,6 +37,8 @@ gem 'bcrypt', '~> 3.1.7'
 #Use CarrierWave to upload image
 gem 'rmagick'
 gem 'carrierwave'
+gem 'kaminari'
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

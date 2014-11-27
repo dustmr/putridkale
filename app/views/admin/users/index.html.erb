@@ -1,0 +1,27 @@
+<h1>Users List (Admin View)</h1>
+
+<%= link_to "Create A User", new_admin_user_path %><br>
+
+<h2>Users</h2>
+<%= paginate @users %>
+<table>
+  <tr>
+    <td> Firstname </td>
+    <td> Lastname </td>
+    <td> Email </td>
+    <td> ID </td>
+    <td></td>
+    <td> Admin</td>
+  </tr>
+    <% @users.each do |user| %>
+  <tr>
+    <td><%= user.firstname %></td> 
+    <td><%= user.lastname %></td>
+    <td><%= link_to user.email, admin_user_path(user) %></td>
+    <td><%= user.id %></td>
+    <td></td>
+    <td><%= user.admin? %></td>
+  </tr>
+    <% end %>
+</table>
+<%= paginate @users %>

@@ -1,0 +1,19 @@
+<h1>Secret Edit Page</h1>
+
+<%= form_for [:admin,@user] do |f| %>
+  <div>
+    <%= f.label "firstname" %><br>
+    <%= f.text_field "firstname" %>
+  </div>
+  <div>
+    <%= f.label "lastname" %><br>
+    <%= f.text_field "lastname" %>
+  </div>
+  <div>
+    <%= f.label "email" %><br>
+    <%= f.text_field "email" %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+<% end %>
