@@ -1,5 +1,6 @@
-`<h1>Putrid Kale</h1>
+<h1>Putrid Kale</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
+<%= link_to "Search our library!", search_path %>
 <hr>
 <% @movies.each do |movie| %>
   <%= image_tag movie.poster.thumb.url %>

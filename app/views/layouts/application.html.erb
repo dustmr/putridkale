@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Putrescent Kale</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value) %>
-  <% end %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
-</body>
-</html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="large-8 columns"><%= yield %></div>
+      <div class="large-4 columns">
+        <h2> Sidebar </h2>
+          <p>tro Odd Future craft beer paleo distillery whatever. Umami 3 wolf moon letterpress lo-fi. Letterpress gentrify wayfarers normcore Bushwick. Sriracha bitters meh sustainable health goth church-key. Helvetica fashion axe Odd Future health goth sustainable, Tonx authentic gluten-free lo-fi tote bag YOLO cliche Banksy whatever. Flannel irony Intelligentsia taxidermy, meditation artisan mumblecore Etsy before they sold out. Synth PBR&B swag readymade.</p>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

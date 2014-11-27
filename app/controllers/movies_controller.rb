@@ -4,6 +4,13 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+    if params[:search] && params[:duration]
+      @movies = Movie.search(params[:search], params[:duration])
+    end
+    render :search
+  end
+
   def show
     @movie = Movie.find(params[:id])
   end

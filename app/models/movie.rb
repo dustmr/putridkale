@@ -20,6 +20,28 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def self.search(search, duration)
+    # duration ||= "2"
+    runtime = get_runtime_sql(duration)
+    search = "%" + search + "%"
+    Movie.where("title LIKE ? AND #{runtime}", search)
+  end
+
+  private
+
+  def get_runtime_sql(duration)
+    case duration.to_i
+    when 1
+      runtime = "runtime_in_minutes <= 90"
+    when 2
+      runtime = "runtime_in_minutes > 90 AND runtime_in_minutes < 120"
+    when 3
+      runtime = "runtime_in_minutes >= 120"
+    else
+      runtime = ""
+    end
+  end
+
     # protected
 
   # def release_date_is_in_the_future
