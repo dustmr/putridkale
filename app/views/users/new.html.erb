@@ -1,5 +1,5 @@
 
-<h1>Sign Up</h1>
+<h1 class="login-title">Sign Up</h1>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div>
@@ -11,25 +11,29 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= f.label "email" %><br>
-    <%= f.text_field "email" %>
+  <div class="row">
+    <div class="large-4 large-centered columns">
+      <div>
+        <%= f.label "email" %><br>
+        <%= f.text_field "email" %>
+      </div>
+      <div>
+        <%= f.label "firstname", "First Name" %><br>
+        <%= f.text_field "firstname" %>
+      </div>
+      <div>
+        <%= f.label "lastname", "Last Name" %><br>
+        <%= f.text_field "lastname" %>
+      </div>
+      <div>
+        <%= f.label "password" %><br>
+        <%= f.password_field "password" %>
+      </div>
+      <div>
+        <%= f.label "password_confirmation" %><br>
+        <%= f.password_field "password_confirmation" %>
+      </div>
+      <div class="login-button"><%= f.submit "Submit", :class => "button" %></div>
+    </div>
   </div>
-  <div>
-    <%= f.label "firstname", "First Name" %><br>
-    <%= f.text_field "firstname" %>
-  </div>
-  <div>
-    <%= f.label "lastname", "Last Name" %><br>
-    <%= f.text_field "lastname" %>
-  </div>
-  <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password" %>
-  </div>
-  <div>
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-  <div><%= f.submit "Submit" %></div>
 <% end %>

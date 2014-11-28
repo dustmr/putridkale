@@ -1,27 +1,29 @@
-<h1>Users List (Admin View)</h1>
+<h1 class="admin-title">Admin Users List</h1>
 
-<%= link_to "Create A User", new_admin_user_path %><br>
+<div style="text-align: center;"><%= link_to "Create New User", new_admin_user_path, :class => "button" %></div><br>
+<div class="row">
+  <div class="large-6 large-centered columns">
+  <%= paginate @users %>
+  <table>
+    <tr>
+      <td style="color: #f04124;"> Firstname </td>
+      <td style="color: #f04124;"> Lastname </td>
+      <td style="color: #f04124;"> Email </td>
+      <td style="color: #f04124;"> ID </td>
+      <td></td>
+      <td style="color: #f04124;"> Admin</td>
+    </tr>
+      <% @users.each do |user| %>
+    <tr>
+      <td><%= user.firstname %></td> 
+      <td><%= user.lastname %></td>
+      <td><%= link_to user.email, admin_user_path(user) %></td>
+      <td><%= user.id %></td>
+      <td></td>
+      <td><%= user.admin? %></td>
+    </tr>
+      <% end %>
+  </table>
+  </div>
+</div>
 
-<h2>Users</h2>
-<%= paginate @users %>
-<table>
-  <tr>
-    <td> Firstname </td>
-    <td> Lastname </td>
-    <td> Email </td>
-    <td> ID </td>
-    <td></td>
-    <td> Admin</td>
-  </tr>
-    <% @users.each do |user| %>
-  <tr>
-    <td><%= user.firstname %></td> 
-    <td><%= user.lastname %></td>
-    <td><%= link_to user.email, admin_user_path(user) %></td>
-    <td><%= user.id %></td>
-    <td></td>
-    <td><%= user.admin? %></td>
-  </tr>
-    <% end %>
-</table>
-<%= paginate @users %>

@@ -12,12 +12,10 @@
   </head>
 
   <body>
+  <div id="bg-filter"></div>
+  <%= render :partial => 'layouts/navbar' %>
     <div class="row">
-      <div class="large-8 columns"><%= yield %></div>
-      <div class="large-4 columns">
-        <h2> Sidebar </h2>
-          <p>tro Odd Future craft beer paleo distillery whatever. Umami 3 wolf moon letterpress lo-fi. Letterpress gentrify wayfarers normcore Bushwick. Sriracha bitters meh sustainable health goth church-key. Helvetica fashion axe Odd Future health goth sustainable, Tonx authentic gluten-free lo-fi tote bag YOLO cliche Banksy whatever. Flannel irony Intelligentsia taxidermy, meditation artisan mumblecore Etsy before they sold out. Synth PBR&B swag readymade.</p>
-      </div>
+      <div class="large-12 columns"><%= yield %></div>
     </div>
     <%= javascript_include_tag "application" %>
   </body>

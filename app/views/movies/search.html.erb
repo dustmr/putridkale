@@ -1,32 +1,26 @@
-<%= form_tag("/search", method: "get") do %>
-<div>
-  <%= label_tag(:search, "Search:") %>
-  <%= text_field_tag(:search) %>
+ <div class="row" id="new_movie_form">
+    <div class="large-4 large-centered columns"> <%= render :partial => 'movies/search_bar' %></div>
 </div>
-<div>
-  <%= label_tag(:duration, "Duration:") %>
-  <%= select_tag(:duration, 
-    options_for_select([
-    ['Under 90 minutes', 1],
-    ['Between 90 and 120 minutes', 2],
-    ['Over 120 minutes', 3]
-    ]), 
-    prompt: "Please select a duration:"
-    ) %>
-</div>
-  <%= submit_tag("Search") %>
-<% end %>
+
+
+
 
 <% if @movies %>
   <% @movies.each do |movie| %>
-    <%= image_tag movie.poster.thumb.url %>
-  <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
   <hr>
+  <div class="row">
+    <div class="large-3 columns">
+      <%= image_tag movie.poster.thumb.url %>
+      <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+    </div>
+    <div class="large-9 columns">
+      <h2><%= link_to movie.title, movie_path(movie) %> <span style="left: 5px; font-size: 0.9em;"class="round alert label"><%= movie.review_average %>/10</span></h2>
+      <h3 class="datetime"><%= formatted_date(movie.release_date) %></h3>
+      <h4 class="director">Director: <%= movie.director %></h4>  
+      <h4 class="director"><%= movie.runtime_in_minutes %> minutes</h4>
+      <!-- <hr> -->
+      <p class="descript-thumb"><%= movie.description %></p>
+    </div>
+  </div>
   <% end %>
-<% else %>
-  No movies found
 <% end %>

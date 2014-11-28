@@ -1,15 +1,13 @@
-<!-- <h2><%= @movie[:title] %></h2>
-  <p><%= @movie[:description] %></p>
-  <small>Directed by: <%= @movie[:director] %></small>
-  <p><small>Runtime: <%= @movie[:runtime_in_minutes] %></small></p>
-  <p><small>In Theatres: <%= @movie[:release_date] %></small></p> -->
 
-<%= link_to "Back to all movies", movies_path %><br/>
+<%= link_to "Back to all movies", movies_path, :class => "button" %><br/>
 <p> <%= image_tag @movie.poster.preview.url %></p>
 <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
-<h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>) | <%= @movie.review_average %>/10</h2>
-<h3><%= @movie.release_date %></h3>
-<h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+<h2 class="show-title"><%= @movie.title %></h2> 
+<div class="fuckyou"><%= link_to "edit", edit_movie_path(@movie) %> 
+| <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %></div>
+<span style="position: relative; top: -70px; float: right; right: 60%; font-size: 1.5em;"class="round alert label"> <%= @movie.review_average %>/10</span>
+<h3 class="datetime"><%= formatted_date(@movie.release_date) %></h3>
+<h4 class="director">Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
 <p><%= @movie.description %></p>
 
 <hr>
@@ -21,7 +19,7 @@
     <p><%= review.rating_out_of_ten %>/10</p>
     <small>- <%= review.user.full_name %></small><br/>
   <% end %>
-  <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+  <p><%= link_to "Write a review!", new_movie_review_path(@movie), :class => "button" %></p>
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
 <% end %>

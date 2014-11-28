@@ -1,13 +1,11 @@
-<h1>Putrid Kale</h1>
-<%= link_to "Submit a movie!", new_movie_path %>
-<%= link_to "Search our library!", search_path %>
-<hr>
+<ul class="large-block-grid-4">
 <% @movies.each do |movie| %>
-  <%= image_tag movie.poster.thumb.url %>
+  <li class="movie-container"><div class="thumb-align"><%= image_tag movie.poster.thumb.url %></div>
   <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %> | <%= movie.review_average %>/10</h2>
-  <h3><%= formatted_date(movie.release_date) %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
+  <h3><%= link_to movie.title, movie_path(movie) %></h3> <span style="position: relative; top: -266px; float: right; right: 5%; font-size: .75em;"class="round alert label">  <%= movie.review_average %>/10</span>
+  <h5 class="date"><%= formatted_date(movie.release_date) %></h5>
+  <h4 class="director">Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
   <hr>
-<% end %>
+  <p class="description"><%= movie.description %></p>
+<% end %></li>
+</ul>

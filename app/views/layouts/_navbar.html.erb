@@ -1,0 +1,26 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name" style="text-align: center;"><h1><a href="/">Putrid Kale</a></h1></li>
+  </ul>
+  <!-- Top Bar Section -->
+  <section class="top-bar-section">
+    <!-- Top Bar Left Nav Elements -->
+    <ul class="left">
+      <ul class="button-group">
+        <li class="has-form">
+          <%= link_to "Search", search_path, :class => "button" %>
+        </li>
+        <li class="has-form">
+          <%= link_to "Submit Film", new_movie_path, :class => "button" %>
+        </li>
+      </ul>
+    </ul>
+    <!-- Top Bar Right Nav Elements -->
+    <ul class="right">
+      <!-- Anchor -->
+      <li> <%= render :partial => 'layouts/footer' %></li>
+      <li class="divider"></li>
+    </ul>
+  </section>
+</nav>
+
