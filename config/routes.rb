@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reviews/new'
-
-  get 'reviews/create'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
   # get 'movies', to: 'movies#index'
 
   # get 'movies/:id', to: 'movies#show'
