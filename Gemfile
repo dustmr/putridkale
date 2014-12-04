@@ -38,8 +38,8 @@ gem 'foundation-rails'
 # gem 'unicorn'
 
 #Use CarrierWave to upload image
-gem 'rmagick'
-gem 'carrierwave'
+# gem 'rmagick'
+# gem 'carrierwave'
 gem 'kaminari'
 gem 'pg'
 
