@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # get 'movies/:id', to: 'movies#show'
   resources :movies do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :index]
   end
   
   resources :users, only: [:new, :create]
