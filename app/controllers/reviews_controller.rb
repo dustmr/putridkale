@@ -1,15 +1,15 @@
 class ReviewsController < ApplicationController
 
   before_filter :load_movie
-  before_filter :restrict_access
+  # before_filter :restrict_access
 
   def new
-    @review = @movie.reviews.build
+    @review = @movie.reviews.new
   end
 
   def create
     @review = @movie.reviews.new(review_params)
-    @review.user_id = current_user.id
+    # @review.user_id = current_user.id
 
     if @review.save!
       redirect_to @movie, notice: "Review created successfully"
