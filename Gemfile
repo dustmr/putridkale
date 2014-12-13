@@ -42,6 +42,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'pg'
+gem 'rails_12factor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
